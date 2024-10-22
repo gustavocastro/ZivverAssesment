@@ -1,0 +1,14 @@
+@use '../../../styles/mixins.scss';
+
+.post-card {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: calc(var(--base-element-size) * 0.5);
+  padding: calc(var(--default-spacing) * 1.5);
+  border-radius: var(--default-border-radius);
+  background-color: var(--white);
+  transition: background-color 0.3s;
+
+  @include mixins.box-shadow;
+}

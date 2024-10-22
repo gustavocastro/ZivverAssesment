@@ -1,0 +1,36 @@
+# Node.js dependency folder
+node_modules/
+
+# Angular build output
+dist/
+out-tsc/
+build/
+
+# Dependency directory created by npm or yarn
+package-lock.json
+
+# IDEs and editor settings
+.vscode/
+.DS_Store
+
+# TypeScript generated code
+*.js
+*.d.ts
+*.js.map
+
+# Logs and temporary files
+npm-debug.log*
+*.log
+tmp/
+temp/
+
+# Other
+/.angular/cache
+/.angular-build/
+
+# Test related files
+/test-results/
+coverage/
+
+# Angular-specific cache files
+.angular/

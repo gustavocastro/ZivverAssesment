@@ -1,0 +1,17 @@
+<div class="post-grid__container">
+    <div class="post-grid__header">
+        <span class="post-grid__title">
+            Active post ID
+        </span>
+
+        <div class="post-grid__active-id">
+            {{ activePostId ?? '-' }}
+        </div>
+    </div>
+
+    <div class="post-grid__items">
+        @for (post of posts; track post.id) {
+            <post-card [post]="post" class="post-grid__item"></post-card>
+        }
+    </div>
+</div>
