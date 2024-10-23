@@ -3,6 +3,7 @@ import { PostService } from '../../services/post.service';
 import { AppState } from '../../store';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { setActivePost } from '../../store/post.actions';
 
 export type Post = {
   id: number,

@@ -4,19 +4,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1600px;
     margin: auto;
-    padding: calc(var(--default-spacing) * 1.5) var(--default-spacing);
+    padding: calc(var(--default-spacing) * 3);
+    border-radius: calc(var(--default-border-radius) * 1.5);
+
+    @include mixins.background-gradient;
 }
 
 .post-grid__header {
+    position: fixed;
+    top: calc(var(--default-spacing) * 2);
     display: flex;
     align-items: center;
     gap: var(--default-spacing);
     margin-bottom: calc(var(--default-spacing) * 1.5);
-    padding: calc(var(--default-spacing) * 1.5);
+    padding: var(--default-spacing) calc(var(--default-spacing) * 1.5);
     border-radius: var(--default-border-radius);
     background-color: var(--white);
+    z-index: 10;
 
     @include mixins.box-shadow;
 }
@@ -29,7 +34,7 @@
 }
 
 .post-grid__active-id {
-    width: calc(var(--base-element-size) * 0.5);
+    width: calc(var(--base-element-size) * 0.25);
     font-size: var(--font-xl);
     font-weight: var(--font-bold);
     border-radius: var(--default-border-radius);
@@ -40,10 +45,7 @@
 
 .post-grid__items {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: var(--default-spacing);
-}
-
-.post-grid__item.post-card--active {
-    grid-column: span 3;
+    grid-template-columns: repeat(10, minmax(120px, auto));
+    gap: var(--default-spacing);
+    grid-auto-flow: dense;
 }

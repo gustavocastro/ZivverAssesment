@@ -3,11 +3,11 @@
 
 html, body {  
     margin: 0;
-    padding: 0;
+    padding: calc(var(--default-spacing) * 2);
 }
 
 html {
-    background-color: var(--background-color);
+    background-color: var(--main-background-color);
     color: var(--on-main-background-color);
     font-family: var(--font-family);
     font-size: var(--font-normal);

@@ -11,7 +11,10 @@
 
     <div class="post-grid__items">
         @for (post of posts; track post.id) {
-            <post-card [post]="post" class="post-grid__item"></post-card>
+            <post-card 
+                [post]="post" 
+                class="post-grid__item">
+            </post-card>
         }
     </div>
 </div>

@@ -1,14 +1,48 @@
 @use '../../../styles/mixins.scss';
 
 .post-card {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+  position: relative;
   height: calc(var(--base-element-size) * 0.5);
   padding: calc(var(--default-spacing) * 1.5);
   border-radius: var(--default-border-radius);
   background-color: var(--white);
-  transition: background-color 0.3s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.post-card:not(.post-card--active)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--default-spacing) * 3);
+  
+  @include mixins.post-card-bottom-gradient;
+}
+
+.post-card--active {
+  position: absolute;
+  width: calc(var(--base-element-size) * 1.5);
+  height: var(--base-element-size);
+  transform: translateX(calc(var(--default-spacing) * -5));
+  z-index: 1;
 
   @include mixins.box-shadow;
+}
+
+.post-card__details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-card__details-current-item {
+  text-transform: uppercase;
+  font-size: var(--font-sm);
+}
+
+.post-card__content {
+  font-size: var(--font-md);
 }

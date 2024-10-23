@@ -1,3 +1,25 @@
-<div class="post-card" (click)="updateCardTitle()">
-    {{ post[currentItem] }}
+<div 
+    class="post-card"
+    [class.post-card--active]="isActive"
+    (click)="updateCardTitle()">
+
+    @if (isActive) {
+        <div class="post-card__details-container">
+            <span class="post-card__details-current-item">
+                {{ currentItem }}
+            </span>
+
+            <button
+                type="button"
+                class="post-card__details-close-button"
+                (click)="closeActivePost($event)">
+
+                Close
+            </button>
+        </div>
+    }
+
+    <span class="post-card__content">
+        {{ post[currentItem] }}
+    </span>
 </div>

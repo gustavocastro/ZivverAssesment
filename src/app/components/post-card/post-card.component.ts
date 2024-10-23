@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AppState } from '../../store';
 import { Store } from '@ngrx/store';
 import { setActivePost } from '../../store/post.actions';
@@ -21,7 +21,6 @@ export class PostCardComponent
 
   @Input() public post: Bindings['post'];
 
-  @HostBinding('class.post-card--active')
   public isActive: boolean = false;
 
   public currentItem: PostCardDisplayItem = 'title';
@@ -47,6 +46,12 @@ export class PostCardComponent
 
   public ngOnDestroy(): void {
     this.postStateSubscription.unsubscribe();
+  }
+
+  public closeActivePost (event: MouseEvent): void {
+    event.stopPropagation();
+
+    this.store.dispatch(setActivePost({ id: null }));
   }
 
   public updateCardTitle(): void {
